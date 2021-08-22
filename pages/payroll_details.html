@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="../css/payroll_details.css">
+    
+   
+</head>
+<body style="background-color:#F7F7F7;">
+    <div class="container">
+        <div class="nav">
+            <div class="n_left">
+                <img src="../assets/logo/logo.png"  id="logo" width="20%" height="50%">
+                <div class="pay">
+                <span style="display: flex;align-items:left ;color: #ccdb9c;font-weight: bold;">Employee</span>
+                <span  style="display: flex;align-items:rigth;color: #5b6874;font-weight: bold;">Payroll</span>
+                </div>
+            </div>
+            <div class="n_center">
+               <!-- <h1 style="color: black;">Add Employee Payroll UI/UX Design</h1> -->
+            </div>
+            <div class="n_right">
+                
+            </div>
+        </div> 
+        <div class="sub_nav">
+            <div class="sub_nav_blank">
+
+            </div>
+            <div class ="sub_nav_left">
+                <h3 >Employee Details</h3>
+            </div>
+            <div class="sub_nav_right">
+                <img class="images" src="../assets/logo/zoom.png">
+                <button onclick="add_field()" type="button" style="background: #82A70C; width: 100px; height: 30px; border: none; color: white;margin-left: 40px;"> + Add User</button>
+
+            </div>
+            <div class="sub_nav_blank">
+                
+            </div>
+        </div>
+        <div class="content">
+            <div class="c_left">
+
+            </div>
+            <div class="c_middle">
+                <div class="header">
+                    <div style="overflow-x:auto;">
+                <table class="t" id="myTable">
+                    <thead>
+                    <tr style="color: white;">
+                        <th style="width: 1%; margin: 0%;padding: 0%;"> </th>
+                        <th>NAME</th>
+                        <th>GENDER</th>
+                        <th>DEPARTMENT</th>
+                        <th>SALARY</th>
+                        <th>START DATE</th>
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <img src="../assets/profile/Ellipse -1.png">
+                        </td>
+                        <td>
+                          Amarpa Shashanka Keerthi Kumar
+                        </td>
+                        <td>
+                        Female
+                        </td>
+                        <td>
+                            <div class="dept">
+                                Sales
+                            </div>
+                            <div class="dept">
+                                HR
+                            </div>
+                            <div class="dept">
+                                Finance
+                            </div> 
+                             
+                        </td>
+                        <td>
+                        10,000
+                        </td>
+                        <td>
+                        29 Oct 2019
+                        </td>
+                        <td>
+                            <img class="icon" src="../assets/logo/delete.png">
+                            <img class="icon" src="../assets/logo/write.png">
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../assets/profile/Ellipse -10.png">
+                            </td>    
+                        <td>
+                        Mohammad Salman Iqbal Shaikh
+                        </td>
+                        <td>
+                        Female
+                        </td>
+                        <td>
+                            <div class="dept">
+                                Sales
+                            </div>
+                            <div class="dept">
+                                HR
+                            </div>
+                            <div class="dept">
+                                Finance
+                            </div> 
+                             
+                        </td>
+                        <td>
+                        10,000
+                        </td>
+                        <td>
+                        29 Oct 2019
+                        </td>
+                        <td>
+                            <img class="icon" src="../assets/logo/delete.png">
+                            <img class="icon" src="../assets/logo/write.png">
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../assets/profile/Ellipse -2.png">
+                            </td>  
+                        <td>
+                        Bubere Qais Mohammad Muzaffar
+                        </td>
+                        <td>
+                        Female
+                        </td>
+                        <td>
+                            <div class="dept">
+                                Sales
+                            </div>
+                            <div class="dept">
+                                HR
+                            </div>
+                            <div class="dept">
+                                Finance
+                            </div> 
+                             
+                        </td>
+                        <td>
+                        10,000
+                        </td>
+                        <td>
+                        29 Oct 2019
+                        </td>
+                        <td>
+                            <img class="icon" src="../assets/logo/delete.png">
+                            <img class="icon" src="../assets/logo/write.png">
+                        </td>
+                        </tr>
+                    </tr>
+                </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <img src="../assets/profile/Ellipse -1.png">
+                        </td>
+                        <td>
+                          Amarpa Shashanka Keerthi Kumar
+                        </td>
+                        <td>
+                        Female
+                        </td>
+                        <td>
+                            <div class="dept">
+                                Sales
+                            </div>
+                            <div class="dept">
+                                HR
+                            </div>
+                            <div class="dept">
+                                Finance
+                            </div> 
+                             
+                        </td>
+                        <td>
+                        10,000
+                        </td>
+                        <td>
+                        29 Oct 2019
+                        </td>
+                        <td>
+                            <img class="icon" src="../assets/logo/delete.png">
+                            <img class="icon" src="../assets/logo/write.png">
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../assets/profile/Ellipse -10.png">
+                            </td>    
+                        <td>
+                        Mohammad Salman Iqbal Shaikh
+                        </td>
+                        <td>
+                        Female
+                        </td>
+                        <td>
+                            <div class="dept">
+                                Sales
+                            </div>
+                            <div class="dept">
+                                HR
+                            </div>
+                            <div class="dept">
+                                Finance
+                            </div> 
+                             
+                        </td>
+                        <td>
+                        10,000
+                        </td>
+                        <td>
+                        29 Oct 2019
+                        </td>
+                        <td>
+                            <img class="icon" src="../assets/logo/delete.png">
+                            <img class="icon" src="../assets/logo/write.png">
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../assets/profile/Ellipse -2.png">
+                            </td>  
+                        <td>
+                        Bubere Qais Mohammad Muzaffar
+                        </td>
+                        <td>
+                        Female
+                        </td>
+                        <td>
+                            <div class="dept">
+                                Sales
+                            </div>
+                            <div class="dept">
+                                HR
+                            </div>
+                            <div class="dept">
+                                Finance
+                            </div> 
+                             
+                        </td>
+                        <td>
+                        10,000
+                        </td>
+                        <td>
+                        29 Oct 2019
+                        </td>
+                        <td>
+                            <img class="icon" src="../assets/logo/delete.png">
+                            <img class="icon" src="../assets/logo/write.png">
+                        </td>
+                        </tr>
+                    </tr>
+                </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <img src="../assets/profile/Ellipse -1.png">
+                        </td>
+                        <td>
+                          Amarpa Shashanka Keerthi Kumar
+                        </td>
+                        <td>
+                        Female
+                        </td>
+                        <td>
+                            <div class="dept">
+                                Sales
+                            </div>
+                            <div class="dept">
+                                HR
+                            </div>
+                            <div class="dept">
+                                Finance
+                            </div> 
+                             
+                        </td>
+                        <td>
+                        10,000
+                        </td>
+                        <td>
+                        29 Oct 2019
+                        </td>
+                        <td>
+                            <img class="icon" src="../assets/logo/delete.png">
+                            <img class="icon" src="../assets/logo/write.png">
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../assets/profile/Ellipse -10.png">
+                            </td>    
+                        <td>
+                        Mohammad Salman Iqbal Shaikh
+                        </td>
+                        <td>
+                        Female
+                        </td>
+                        <td>
+                        <div class="dept">
+                            Sales
+                        </div>
+                        <div class="dept">
+                            HR
+                        </div>
+                        <div class="dept">
+                            Finance
+                        </div> 
+                         
+                        </td>
+                        <td>
+                        10,000
+                        </td>
+                        <td>
+                        29 Oct 2019
+                        </td>
+                        <td>
+                            <img class="icon" src="../assets/logo/delete.png">
+                            <img class="icon" src="../assets/logo/write.png">
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../assets/profile/Ellipse -2.png">
+                            </td>  
+                        <td>
+                        Bubere Qais Mohammad Muzaffar
+                        </td>
+                        <td>
+                        Female
+                        </td>
+                        <td>
+                            <div class="dept">
+                                Sales
+                            </div>
+                            <div class="dept">
+                                HR
+                            </div>
+                            <div class="dept">
+                                Finance
+                            </div> 
+                             
+                        </td>
+                        <td>
+                        10,000
+                        </td>
+                        <td>
+                        29 Oct 2019
+                        </td>
+                        <td>
+                            <img class="icon" src="../assets/logo/delete.png">
+                            <img class="icon" src="../assets/logo/write.png">
+                        </td>
+                        </tr>
+                    </tr>
+                </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <img src="../assets/profile/Ellipse -1.png">
+                        </td>
+                        <td>
+                          Amarpa Shashanka Keerthi Kumar
+                        </td>
+                        <td>
+                        Female
+                        </td>
+                        <td>
+                            <div class="dept">
+                                Sales
+                            </div>
+                            <div class="dept">
+                                HR
+                            </div>
+                            <div class="dept">
+                                Finance
+                            </div> 
+                             
+                        </td>
+                        <td>
+                        10,000
+                        </td>
+                        <td>
+                        29 Oct 2019
+                        </td>
+                        <td>
+                            <img class="icon" src="../assets/logo/delete.png">
+                            <img class="icon" src="../assets/logo/write.png">
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../assets/profile/Ellipse -10.png">
+                            </td>    
+                        <td>
+                        Mohammad Salman Iqbal Shaikh
+                        </td>
+                        <td>
+                        Female
+                        </td>
+                        <td>
+                            <div class="dept">
+                                Sales
+                            </div>
+                            <div class="dept">
+                                HR
+                            </div>
+                            <div class="dept">
+                                Finance
+                            </div> 
+                             
+                        </td>
+                        <td>
+                        10,000
+                        </td>
+                        <td>
+                        29 Oct 2019
+                        </td>
+                        <td>
+                            <img class="icon" src="../assets/logo/delete.png">
+                            <img class="icon" src="../assets/logo/write.png">
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="../assets/profile/Ellipse -2.png">
+                            </td>  
+                        <td>
+                        Bubere Qais Mohammad Muzaffar
+                        </td>
+                        <td>
+                        Female
+                        </td>
+                        <td>
+                            <div class="dept">
+                                Sales
+                            </div>
+                            <div class="dept">
+                                HR
+                            </div>
+                            <div class="dept">
+                                Finance
+                            </div> 
+                             
+                        </td>
+                        <td>
+                        10,000
+                        </td>
+                        <td>
+                        29 Oct 2019
+                        </td>
+                        <td>
+                            <img class="icon" src="../assets/logo/delete.png">
+                            <img class="icon" src="../assets/logo/write.png">
+                        </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+            </div>
+            
+            <div class="c_right">
+
+            </div>
+        </div>
+        </div>
+    
+    <script src="../js/file.js"></script>
+</body>
+
+</html>
