@@ -1,0 +1,134 @@
+
+    .container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        
+    }
+    .nav{
+        display: flex;
+        background-color:#ffffff;
+        padding: 1%;
+    }
+    .content{
+        display: flex;
+    }
+    .header{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        border-collapse: collapse;
+        
+    }
+    .c_left{
+        display: flex;
+        align-items: left;
+        width: 10%;
+        
+    }
+    .c_middle{
+        display: flex;
+        width: 80%;
+        justify-content: center;
+        align-items: center;
+        background-color:#ffffff;
+    }
+    .c_right{
+        display: flex;
+        align-items: right;
+        width: 10%;
+        
+    }
+    .n_left{
+        display: flex;
+        width: 10%;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .n_center{
+        
+        display: flex;
+        flex-wrap: wrap;
+        width: 60%;
+        
+    }
+    .t{
+        border-collapse: collapse;
+        border:  1px solid #E3E3E3;
+        width: 1210px;
+    }
+    th{
+        background: #42515F;
+       
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    td{
+        background:white;  
+    }
+    .t thead tr th{
+        
+    }
+    .t tbody tr td{
+        text-align: center;
+        border-top:1px solid #E3E3E3;
+    }
+    img{
+        width: 30px;
+        padding-right: 10px;
+    }
+    .sub_nav{
+        display: flex;
+    }
+    .sub_nav_left{
+        display: flex;
+        width: 40%;
+    }
+    .sub_nav_right{
+        display: flex;
+        width: 40%;
+        justify-content: center;
+        align-items: center;
+    
+        justify-content: flex-end;
+    }
+    .sub_nav_blank{
+        display: flex;
+        width: 10%;
+    }
+    .images{
+        text-align: center;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 0px 1px 3px #00000029;
+        border-radius: 28px;
+        opacity: 1;
+    }
+    .dept{
+        display: flex;
+        display: inline-block;
+        background: #E9FEA5 0% 0% no-repeat padding-box;
+        border-radius: 13px;
+        opacity: 1;
+        padding: 3px;
+        font-size: 14px;
+    }
+    .icon{
+        width: 15px;
+    }
+    @media screen and (max-width: 479px) {
+        .table,
+        thead,
+        tbody,
+        tr,
+        th,
+        td{
+          display: block;
+          color: blue; 
+        }
+    }
+
+
+
+
+    
