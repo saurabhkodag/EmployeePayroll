@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/employee_wage.css">
   </head>
-<body style="background-color:#f7f7f7; color:#575a5e" >
+  <body style="background-color:#f7f7f7; color:#575a5e">
     <div class="container">
 <!-- nav div-->
         <div class="nav">
@@ -27,7 +27,7 @@
    <div class="c_left">
    </div>
    <div class="c_middle">
-  <table>
+  <table class="table-display" id="table-display" name="table-display">
     <tr>
         <td style="color: black;">
             <h3>Employee Payroll Form</h3>
@@ -35,24 +35,27 @@
     </tr>
     <tr>
       <td>
-  <label for="name">Name</label>
+    <label for="name">Name</label>
       </td>
       <td>
-  <input type="text" id="name" name="fname" value="" ><br>
-      </div>
+        <div class="temp">
+    <input type="text" id="name" name="fname" value="" onkeypress="checkn(value)" ><br>
+    <small></small>
+        </div>
     </tr>
     <tr>
     <td>
       <label for="profile_image">Profile image</label>
           </td>
           <td>
-            <input type="radio" id="image" name="profile_image" value="image_1">
+            
+            <input type="radio" id="profile-photo-1" name="profile_image" value="../assets/profile/Ellipse -10.png">
             <img src="../assets/profile/Ellipse -10.png" width="8%" height="8%">
-            <input type="radio" id="image" name="profile_image" value="image_2">
+            <input type="radio" id="profile-photo-2" name="profile_image" value="../assets/profile/Ellipse -2.png">
             <img src="../assets/profile/Ellipse -2.png" width="8%" height="8%">
-            <input type="radio" id="image" name="profile_image" value="image_3">
+            <input type="radio" id="profile-photo-3" name="profile_image" value="../assets/profile/Ellipse -1.png">
             <img src="../assets/profile/Ellipse -1.png" width="8%" height="8%">
-            <input type="radio" id="image" name="profile_image" value="image_4">
+            <input type="radio" id="profile-photo-4" name="profile_image" value="../assets/profile/Ellipse -3.png">
             <img src="../assets/profile/Ellipse -3.png" width="8%" height="8%">
           </td>
       </tr>
@@ -72,15 +75,15 @@
       <label for="department">Department</label>
           </td>
           <td>
-            <input type="checkbox" id="deartment" name="department" value="hr">
+            <input type="checkbox" id="deartment1" name="department" value="hr">
             <label for="hr">Hr</label>
-            <input type="checkbox" id="deartment" name="department" value="sale">
+            <input type="checkbox" id="deartment2" name="department" value="sale">
             <label for="sales">Sale</label>
-            <input type="checkbox" id="deartment" name="department" value="finance">
+            <input type="checkbox" id="deartment3" name="department" value="finance">
             <label for="finance">Finance</label>
-            <input type="checkbox" id="deartment" name="department" value="engineering">
+            <input type="checkbox" id="deartment4" name="department" value="engineering">
             <label for="engineering">Engineering</label>
-            <input type="checkbox" id="deartment" name="department" value="others">
+            <input type="checkbox" id="deartment5" name="department" value="others">
             <label for="others">Others</label>
           </td>
       </tr>
@@ -89,23 +92,14 @@
           <label for="salary">Salary</label>
           </td>
           <td>
-            <input type="range" id="vol" name="vol" min="0" max="40000" width="50%"> <div id="demo" style="display: inline; padding: 8px;"></div>
-            <script>
-            var slider = document.getElementById("vol");
-            var output = document.getElementById("demo");
-            output.innerHTML = slider.value;
-            let slider_value;              
-            slider.oninput = function() {
-            slider_value = this.value;
-            output.innerHTML = this.value;
-            }
-            </script>
+            <input type="range" class="slider" id="vol" name="vol" min="0" max="40000" width="50%" value=""> <div id="demo" style="display: inline; padding: 8px;"></div>
           </td>
       <tr>
         <td> 
       <label for="start_date">Start Date</label>
     </td>
     <td>
+      <div class="dt">
       <select id="day" name="day" form="carform" style="width: 20%;padding: 8px;background: #f1f1f1;">
         <option style="display:none;" selected>Day</option>
         <option value="01">1</option>
@@ -207,6 +201,9 @@
         <option value="1983">1983</option>
         <option value="1982">1982</option>
         <option value="1981">1981</option>
+      </select>
+        <div><small></small></div>
+      </div>                     
     </td>
 </tr>
       </tr>
@@ -227,7 +224,7 @@
       <td>
         <div  id="b" style="padding-left: 40%;display: flex;">
         <Button onclick="validate()" type="button" style="width: 40%; height: 40px;">Submit</Button>
-        <input type="button" id="Reset" value="Reset" style="width: 40%; height: 40px;margin-left: 20px;">
+        <input type="reset" value="Reset" onclick="window.location.href='../pages/employee_wage.html'" style="width: 40%; height: 40px;margin-left: 20px;">
       </div>
       </td>
       </tr>
@@ -238,6 +235,8 @@
     </div>
     </div>
     </div>  
- <script src="../js/file.js"></script>
+ <script src="../js/index.js"></script>
+  <script src="../js/valid.js"></script>
+  
 </body>
 </html>

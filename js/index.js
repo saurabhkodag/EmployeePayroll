@@ -7,8 +7,10 @@ let _day;
 let _month;
 let _year;
 let _notes;
+let payrollOjectList = [];
 let _salary;
 let _id;
+let EmployeePayrollList=[];
 class Employeepayroll{
     get id(){return _id;}
     set id(id){
@@ -16,7 +18,23 @@ class Employeepayroll{
     }
     get name(){return _name;}
     set name(name){
-        _name = name.value;
+        let reg = /^(([A-Z])([a-zA-Z0-9_]+){2,})$/;
+        if(reg.test(name.value)){
+            _name = name.value;
+            let input =document.getElementById("name");
+            const formControl = input.parentElement;
+            formControl.className = 'form_control_success';
+            const small = formControl.querySelector('small');
+            small.innerText = "";
+            
+        }else{
+            let input =document.getElementById("name");
+            const formControl = input.parentElement;
+            formControl.className = 'form_control_error';
+            const small = formControl.querySelector('small');
+            small.innerText = "Invalid name";
+            
+        }
     }
     
     get profile_image(){return _profile_image;}
@@ -48,9 +66,63 @@ class Employeepayroll{
     }
     get date(){return [_day,_month,_year];}
     set date([day,month,year]){
-        _day=day.value;
-        _month=month.value;
-        _year=year.value; 
+        let c_day=21;
+        let c_month=8;
+        let c_year=2021;
+        let count=1;
+        if(c_year>year.value){
+            _day=day.value;
+            _month=month.value;
+            _year=year.value;
+            console.log("valid date");
+            count=1;
+        }
+        else if(c_year==year.value){
+            if(c_month>month.value){
+                _day=day.value;
+                _month=month.value;
+                 _year=year.value;
+                 count=1;
+                console.log("valid date");  
+            }
+            else if(c_month==month.value){
+                if(c_day>=day.value){
+                    _day=day.value;
+                    _month=month.value;
+                     _year=year.value;
+                     count=1;
+                    console.log("valid date");
+                }
+                else{
+                    count=0;
+                    console.log("invalid date");
+                }
+            }
+            else{
+                count=0;
+                console.log("invalid date");
+            }
+        }
+        else{
+            count=0;
+            console.log("invalid date");
+        }
+        if(count==1){
+            
+            let input =document.getElementById("dt");
+            const formControl = day.parentElement;
+            formControl.className = 'form_control_success_date';
+            const small = formControl.querySelector('small');
+            small.innerText = "";
+            
+        }else{
+            let input =document.getElementById("day");
+            const formControl = input.parentElement;
+            formControl.className = 'form_control_error_date';
+            const small = formControl.querySelector('small');
+            small.innerText = "Invalid Date";
+            
+        }
     }
     get salary(){return _salary;}
     set salary(salary){
@@ -70,7 +142,24 @@ slider.oninput = function() {
 slider_value = this.value;
 output.innerHTML = this.value;
 }
-
+function checkn(name){
+    let reg = /^(([A-Z])([a-zA-Z0-9_]+){1,})$/;
+    if(reg.test(name)){    
+        let input =document.getElementById("name");
+        const formControl = input.parentElement;
+        formControl.className = 'form_control_success';
+        const small = formControl.querySelector('small');
+        small.innerText = "";
+        
+    }else{
+        let input =document.getElementById("name");
+        const formControl = input.parentElement;
+        formControl.className = 'form_control_error';
+        const small = formControl.querySelector('small');
+        small.innerText = "Invalid name";
+        
+    }
+}
 const empData = new Employeepayroll();
 const validate=()=>{
     
@@ -111,7 +200,4 @@ const validate=()=>{
     empData.date=[document.getElementById("day"),document.getElementById("month"),document.getElementById("year")];
     empData.salary=slider_value;
     empData.notes=document.getElementById("notes");
-    
-    console.log(slider_value);
-    createPayrollObject();
 }
