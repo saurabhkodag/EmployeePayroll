@@ -55,3 +55,23 @@
   padding: 8px;
   background: #f1f1f1;
     }
+    .form_control_success input{
+        border:2px solid green;
+        
+    }
+    .form_control_error input{
+        border:2px solid red;
+    }
+    .form_control_error small{
+        color: red;
+    }
+    .form_control_error_date select{
+        border:2px solid red;
+    }
+    .form_control_error_date small{
+        color: red;
+    }
+    .form_control_success_date select{
+        border:2px solid green;
+        
+    }
