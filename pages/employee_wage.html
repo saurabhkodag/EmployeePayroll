@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../css/temp.css">
+    <link rel="stylesheet" href="../css/employee_wage.css">
   </head>
 <body style="background-color:#f7f7f7; color:#575a5e" >
     <div class="container">
@@ -90,6 +90,16 @@
           </td>
           <td>
             <input type="range" id="vol" name="vol" min="0" max="40000" width="50%"> <div id="demo" style="display: inline; padding: 8px;"></div>
+            <script>
+            var slider = document.getElementById("vol");
+            var output = document.getElementById("demo");
+            output.innerHTML = slider.value;
+            let slider_value;              
+            slider.oninput = function() {
+            slider_value = this.value;
+            output.innerHTML = this.value;
+            }
+            </script>
           </td>
       <tr>
         <td> 
