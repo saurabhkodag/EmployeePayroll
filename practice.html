@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Async and await</h1>
+    <button type ="button" class="display_a" > Display</button>
+    <button id="deletea" onclick="delete_a()" > Delete</button>
+    <button id="add" onclick="add_a()" > Add</button>
+   <script src="practice.js"></script>
+</body>
+</html>
+ <!--    
+    <script>
+        function makeAjaxcall(methodType,url,callback,async=false,data=null){
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(xhttp.readyState==4){
+                if(xhttp.status==200){
+                    callback(xhttp.responseText);
+                }
+                else{
+                    console.log("Failure response");
+                }
+                }
+                
+            }
+            xhttp.open(methodType,url,async);
+            xhttp.send();
+        }
+        const baseUrl='http://localhost:3000/employees/';
+        function getUserDetails(data){
+            console.log(data);
+        }
+        makeAjaxcall("get",baseUrl,getUserDetails,true); 
+    </script> 
+
+ -->
+<!--     <script>
+//         function makeajaxcall(methodType,url,callback,async=false,data=null){
+//         const xhttp= new XMLHttpRequest();
+//         xhttp.onreadystatechange = function(){
+//             console.log(xhttp.readyState);
+//             if(xhttp.readySate==4){
+//                 if(xhttp.status==200){
+//                 callback(xhttp.responseText);
+//                 }
+//                 else{
+//                 console.log("error");
+//             }
+//             }
+            
+//         }
+//         xhttp.open(methodType,url,async);
+//         xhttp.send();
+//     }
+//     const baseUrl="http://localhost:3000/employees/";
+//     function getUserDetails(data){
+//         console.log(data);
+//     }
+//     makeajaxcall("get",baseUrl,getUserDetails,true); 
+//  </script> 
+ -->
+
