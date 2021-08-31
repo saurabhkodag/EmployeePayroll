@@ -1,3 +1,51 @@
 {
-  "employees": []
+  "employees": [
+    {
+      "id": "ecf347c7-7adb-4061-b719-18c86f21cf7a",
+      "profile_image": "../assets/profile/Ellipse -2.png",
+      "name": "Sourabh",
+      "gender": "Male",
+      "department": [
+        "sale",
+        "finance"
+      ],
+      "salary": "28075",
+      "date": [
+        "18",
+        "2",
+        "2011"
+      ],
+      "notes": "HI there"
+    },
+    {
+      "id": "87ed38db-a49d-4f0e-9457-5159f7e53ce9",
+      "profile_image": "../assets/profile/Ellipse -3.png",
+      "name": "Sachin",
+      "gender": "Male",
+      "department": [
+        "hr",
+        "sale"
+      ],
+      "salary": "32323",
+      "date": [
+        "17",
+        "4",
+        "2013"
+      ],
+      "notes": "Hi there"
+    }
+  ],
+  "credentials": [
+    {
+      "id": "8976159682",
+      "email": "kodag.saurabh6@gmail.com",
+      "password": "sachin@123"
+    },
+    {
+      "id": "7777777777",
+      "email": "example@gmail.com",
+      "password": "qwerty"
+    }
+
+  ]
 }

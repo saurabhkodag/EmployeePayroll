@@ -1,8 +1,38 @@
 let empPayrollList = new Array();
+let user=[];
+
 window.addEventListener("DOMContentLoaded",(event)=>{
-   
-    const baseUrl='http://localhost:3000/employees/';
+    makeAjaxcall("get",site_properties.json_host_server,true).then((val)=>InnerHTML(JSON.parse(val))).catch((val)=>console.log("false"));
+        if(localStorage.getItem('token')!=undefined){
+        window.location = '../pages/index.html'; 
+       }
+       else{
+        window.location = '../pages/login.html';   
+       }
+    makeAjaxcall("get",site_properties.json_host_server,true).then((val)=>setu(JSON.parse(val))).catch((val)=>console.log("false"));    
+});
+let filterUsers = function(event){
+ keyword = document.getElementById("filter_users").value;
+
+ filtered_users = user.filter(function(user){
+      return user.name.indexOf(keyword) > -1; 
+ });
+ InnerHTML(filtered_users);
+}
+function setu(val){
+user=val;
+console.log(user);
+}
+document.getElementById("filter_users").addEventListener('keyup', filterUsers);
+window.addEventListener("DOMContentLoaded",(event)=>{
     makeAjaxcall("get",site_properties.json_host_server,true).then((val)=>InnerHTML(val)).catch((val)=>console.log("false"));
+        if(token!=undefined){
+         window.location = '../pages/index.html'; 
+        }
+        else{
+         window.location = '../pages/login.html';   
+        }
+    
     
 });
 let isUpdate =false;
@@ -43,7 +73,7 @@ function InnerHTML(val){
     </thead>`
 
     let innerHTML =`${headerHTML}`;
-    let empDataArray = JSON.parse(val);
+    let empDataArray =val;
     console.log(empDataArray);
     for(const EmpData of empDataArray){
     innerHTML =`${innerHTML}
@@ -391,49 +421,7 @@ function add(){
            document.getElementById('demo').innerHTML = sHTML;
            
        }
-        // function makeAjaxcall(methodType,url,callback,async=false,data=null){
-        //         const xhttp = new XMLHttpRequest();
-        //         xhttp.onreadystatechange = function(){
-        //             if(xhttp.readyState==4){
-        //             if(xhttp.status==200){
-        //                 callback(xhttp.responseText);
-        //             }
-        //             else{
-        //                 console.log("Failure response");
-        //             }
-        //             }
-                    
-        //         }
-        //         xhttp.open(methodType,url,async);
-        //         xhttp.send();
-        //     } 
-        //     function discplayc(){
-        //     const baseUrl='http://localhost:3000/employees/';
-        //     function getUserDetails(data){
-        //         console.log(data);
-        //     }
-        //     makeAjaxcall("get",baseUrl,getUserDetails,true);
-//         // }
-// function makeAjaxcall(methodType,url,callback,async=false,data=null){
-//         const xhttp = new XMLHttpRequest();
-//         xhttp.onreadystatechange = function(){
-//             if(xhttp.readyState==4){
-//             if(xhttp.status==200){
-//                 callback(xhttp.responseText);
-//             }
-//             else{
-//                 console.log("Failure response");
-//             }
-//             }
-            
-//         }
-//         xhttp.open(methodType,url,async);
-//         xhttp.send();
-//     } 
-//     function discplayc(){
-//     const baseUrl='http://localhost:3000/employees/';
-//     function getUserDetails(data){
-//         console.log(data);
-//     }
-//     makeAjaxcall("get",baseUrl,getUserDetails,true);
-
+       function logout(){
+        localStorage.removeItem("token");
+        window.location = '../pages/login.html'; 
+    }        

@@ -5,6 +5,9 @@
     
 </head>
 <body style="background-color:#F7F7F7;">
+    <div class="loader_bg">
+        <div class="loader"></div>
+    </div>
     <div class="container">
         <div class="nav">
             <div class="n_left">
@@ -29,8 +32,10 @@
                 <h3 >Employee Details</h3>
             </div>
             <div class="sub_nav_right">
+                <input type="text" placeholder="Search Users" id="filter_users"/>
                 <img class="images" src="../assets/logo/zoom.png">
-                <button onclick="createInnerHTML()" createInn" type="button" style="background: #82A70C; width: 100px; height: 30px; border: none; color: white;margin-left: 40px;"> + Add User</button>
+                <button onclick="logout()" type="button" style="background: #82A70C; width: 100px; height: 30px; border: none; color: white;margin-left: 40px;"> Logout</button>
+                <button onclick="createInnerHTML()" type="button" style="background: #82A70C; width: 100px; height: 30px; border: none; color: white;margin-left: 40px;"> + Add User</button>
 
             </div>
             <div class="sub_nav_blank">
@@ -59,8 +64,15 @@
     
     <!-- <script src="../js/employee_wage.js"></script> -->
     <!-- <script src="../js/index.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        setTimeout(function(){
+            $('.loader_bg').fadeToggle();
+        }, 1500);
+    </script>
     <script src="../js/homePage.js"></script>
     <script src="../js/site_properities.js"></script>
+    <script src="../js/login.js"></script>
 </body>
 
 </html>
