@@ -358,6 +358,7 @@ function update(node){
     
     window.location = '../pages/employee_wage.html';
     localStorage.setItem("id",node.id);
+    checkForUpdates();
 }
 function reset(){
     document.getElementById("table-display").reset();

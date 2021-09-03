@@ -93,7 +93,9 @@
           <label for="salary">Salary</label>
           </td>
           <td>
-            <input type="range" class="slider" id="vol" name="vol" min="0" max="40000" width="50%" value=""> <div id="demo" style="display: inline; padding: 8px;"></div>
+            <!-- <input type="range" class="slider" id="vol" name="vol" min="0" max="40000" width="50%" value="" onchange="u_slider()"> <div id="demo" style="display: inline; padding: 8px;"></div> -->
+            <input class="input-salary" id="salary-input" type="range" min="1" max="50000" value="25000" oninput="this.nextElementSibling.value = this.value"> <output id="salary-output" style="display: inline; padding: 8px;">25000</output>
+            
           </td>
       <tr>
         <td> 
@@ -224,7 +226,7 @@
       </td>
       <td>
         <div  id="b" style="padding-left: 40%;display: flex;">
-        <Button onclick="validate_json()" type="button" style="width: 40%; height: 40px;">Submit</Button>
+        <Button onclick="validate_json();window.location = '../pages/index.html';" type="button" style="width: 40%; height: 40px;">Submit</Button>
         <input type="reset" value="Reset" onclick="window.location.href='../pages/employee_wage.html'" style="width: 40%; height: 40px;margin-left: 20px;">
       </div>
       </td>

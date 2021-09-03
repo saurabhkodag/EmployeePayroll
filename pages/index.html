@@ -8,6 +8,7 @@
     <div class="loader_bg">
         <div class="loader"></div>
     </div>
+   
     <div class="container">
         <div class="nav">
             <div class="n_left">
@@ -20,22 +21,37 @@
             <div class="n_center">
                <!-- <h1 style="color: black;">Add Employee Payroll UI/UX Design</h1> -->
             </div>
-            <div class="n_right">
-                
+            <div class="n_right" style="display: flex;">
+                <div class="profile_info">
+                    <img src="../assets/profile/Ellipse -2.png" onclick="openForm()" align-item:left>
+                    <div class="form-popup" id="myForm">
+                        <form class="form-container">
+                        <img src="../assets/profile/Ellipse -2.png" style="width: 50%; height: 100%;">
+                        <div id="p_email"></div>
+                        <div id="p_phone"></div>
+                          <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
+                        </form>
+                      </div>
+                </div>
+                <button onclick="logout()" type="button" style="background: #82A70C; width: 100px; height: 30px; border: none; color: white;margin-left: 40px;"> Logout</button>
             </div>
         </div> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
         <div class="sub_nav">
             <div class="sub_nav_blank">
 
             </div>
             <div class ="sub_nav_left">
                 <h3 >Employee Details</h3>
+                <button class="table-count" id="table-count" style="padding: 5px;background-color:#82A70C;color: white ;"></button>
             </div>
+            
             <div class="sub_nav_right">
                 <input type="text" placeholder="Search Users" id="filter_users"/>
                 <img class="images" src="../assets/logo/zoom.png">
-                <button onclick="logout()" type="button" style="background: #82A70C; width: 100px; height: 30px; border: none; color: white;margin-left: 40px;"> Logout</button>
-                <button onclick="createInnerHTML()" type="button" style="background: #82A70C; width: 100px; height: 30px; border: none; color: white;margin-left: 40px;"> + Add User</button>
+               
+                <button onclick=window.location='../pages/employee_wage.html' style="background: #82A70C; width: 100px; height: 30px; border: none; color: white;margin-left: 40px;"> + Add User</button>
 
             </div>
             <div class="sub_nav_blank">
@@ -64,15 +80,15 @@
     
     <!-- <script src="../js/employee_wage.js"></script> -->
     <!-- <script src="../js/index.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
         setTimeout(function(){
             $('.loader_bg').fadeToggle();
-        }, 1500);
+        }, 1);
     </script>
     <script src="../js/homePage.js"></script>
     <script src="../js/site_properities.js"></script>
     <script src="../js/login.js"></script>
+    <script src="../js/redirect.js"></script>
 </body>
 
 </html>

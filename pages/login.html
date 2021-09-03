@@ -9,7 +9,7 @@
 </head>
 <body>
 <!-- onload="checkForUpdates()" -->
-<body style="background-color:#f7f7f7; color:#575a5e">   
+<body style="background-color:#82A70C; color:#575a5e">   
   <div class="loader_bg">
     <div class="loader"></div>
 </div>  
@@ -33,9 +33,9 @@
         </div>
 <!-- body div-->
    <div class="content">
-   <div class="c_left">
+   <div class="lc_left">
    </div>
-   <div class="c_middle">
+   <div class="lc_middle">
   <table class="table-display" id="table-display" name="table-display">
     <tr>
         <td style="color: black;">
@@ -44,7 +44,7 @@
     </tr>
     <tr>
       <td>
-    <label for="name">Phone Number</label>
+    <label for="name" style="text-align: center;">Phone Number</label>
       </td>
       <td>
         <div class="temp">
@@ -60,22 +60,26 @@
         <input type="text" id="password" name="password" value="" onkeypress="checkp(value)" ><br>
         <small></small>
             </div>
+            <div class="temp">
+              <div class="temp1"></div>
+              <small></small>
+            </div>
         </tr>
     <tr>
       <td>
-        <input type="button" id="cancel" value="Cancel" style="width: 60%; height: 40px;" > 
+        <Button onclick=window.location='../pages/signup.html' type="button"  style=" background-color:#82A70C; width: 60%; height: 40px;color: white;">Sign Up</Button> 
       </td>
       <td>
         <div  id="b" style="padding-left: 40%;display: flex;">
-        <Button onclick="validate_login()" type="button" style="width: 60%; height: 40px;">Submit</Button>
-        <input type="reset" value="Reset" onclick="window.location.href='../pages/employee_wage.html'" style="width: 60%; height: 40px;margin-left: 20px;">
+        <Button onclick="validate_login()" type="button"  style=" background-color:#82A70C; width: 60%; height: 40px;color: white;">Submit</Button>
+        <!-- <input type="reset" value="Reset" onclick="window.location.href='../pages/employee_wage.html'" style="width: 60%; height: 40px;margin-left: 20px;"> -->
       </div>
       </td>
       </tr>
       
       </table>
     </div>
-    <div class="c_right">
+    <div class="lc_right">
     </div>
     </div>
     </div>  
@@ -83,11 +87,12 @@
     <script>
         setTimeout(function(){
             $('.loader_bg').fadeToggle();
-        }, 1500);
+        },1);
     </script>
  <!-- <script src="../js/index.js"></script> -->
- <!-- <script src="../js/homePage.js"></script>-->
+ <!-- <script src="../js/homePage.js"></script> -->
  <script src="../js/site_properities.js"></script>   
  <script src="../js/login.js"></script>
+ <script src="../js/redirect.js"></script>
 </body>
 </html>

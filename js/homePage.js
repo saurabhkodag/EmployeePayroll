@@ -2,131 +2,10 @@ let empPayrollList = new Array();
 let user=[];
 
 window.addEventListener("DOMContentLoaded",(event)=>{
-    makeAjaxcall("get",site_properties.json_host_server,true).then((val)=>InnerHTML(JSON.parse(val))).catch((val)=>console.log("false"));
-        if(localStorage.getItem('token')!=undefined){
-        window.location = '../pages/index.html'; 
-       }
-       else{
-        window.location = '../pages/login.html';   
-       }
+    makeAjaxcall("get",site_properties.json_host_server,true).then((val)=>{document.getElementById("table-count").innerText = JSON.parse(val).length;InnerHTML(JSON.parse(val))}).catch((val)=>console.log("false")); 
     makeAjaxcall("get",site_properties.json_host_server,true).then((val)=>setu(JSON.parse(val))).catch((val)=>console.log("false"));    
 });
-let filterUsers = function(event){
- keyword = document.getElementById("filter_users").value;
 
- filtered_users = user.filter(function(user){
-      return user.name.indexOf(keyword) > -1; 
- });
- InnerHTML(filtered_users);
-}
-function setu(val){
-user=val;
-console.log(user);
-}
-document.getElementById("filter_users").addEventListener('keyup', filterUsers);
-window.addEventListener("DOMContentLoaded",(event)=>{
-    makeAjaxcall("get",site_properties.json_host_server,true).then((val)=>InnerHTML(val)).catch((val)=>console.log("false"));
-        if(token!=undefined){
-         window.location = '../pages/index.html'; 
-        }
-        else{
-         window.location = '../pages/login.html';   
-        }
-    
-    
-});
-let isUpdate =false;
-let employeePayrollObj={};
-let makeAjaxcall=(methodType,url,async=false,data=null)=>{
-    return new Promise((resolve,reject)=>{
-    const xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function(){
-        
-            if(xhttp.readyState==4){
-        if(xhttp.status>=200 &&xhttp.status<=399){
-            
-            return resolve(xhttp.responseText);
-        }
-        else{
-            console.log("Failure response");
-            return reject(false);
-        }
-        }   
-        }
-        xhttp.open(methodType,url,async);
-    xhttp.send();
-    });
-    
-};
-function InnerHTML(val){
-    const headerHTML =
-    `<thead>
-    <tr style="color: white;">
-        <th style="width: 1%; margin: 0%;padding: 0%;"> </th>
-        <th>NAME</th>
-        <th>GENDER</th>
-        <th>DEPARTMENT</th>
-        <th>SALARY</th>
-        <th>START DATE</th>
-        <th>ACTION</th>
-    </tr>
-    </thead>`
-
-    let innerHTML =`${headerHTML}`;
-    let empDataArray =val;
-    console.log(empDataArray);
-    for(const EmpData of empDataArray){
-    innerHTML =`${innerHTML}
-    <tbody>
-<tr>
-    
-     <td>
-        <img src="${EmpData.profile_image}">
-    </td>
-    <td>
-      ${EmpData.name}
-    </td>
-    <td>
-     ${EmpData.gender}
-    </td>
-    <td>   
-        ${display(EmpData.department)}  
-    </td>
-    <td>
-    ${EmpData.salary}
-    </td>
-    <td>
-    ${EmpData.date}
-    </td>
-    <td>
-        <img id="${EmpData.id}" class="icon" src="../assets/logo/delete.png" onclick="remove(this)" >
-        <img id="${EmpData.id}" class="icon" src="../assets/logo/write.png" onclick="update(this)" >
-     </td>
-     </tr>
-    </tbody>`;
-        
-    }
-    document.querySelector('#t').innerHTML=innerHTML;
-}
-function remove(val){
-    console.log(val.id);
-    const baseUrl2='http://localhost:3000/employees/${val}';
-     makeAjaxcall("delete",site_properties.json_host_server+val.id,false);
-}
-function display(val){
-    let d="";
-    for(let i=0;i<val.length;i++){
-        
-           d=`${d} <div class="dept">${val[i]}</div>`; 
-        
-    }
-    return d;
-}
-function update(val){
-    
-    window.location = '../pages/employee_wage.html';
-    localStorage.setItem("id",val.id);
-}
 let _name;
 let _gender;
 let _profile_image;
@@ -263,14 +142,6 @@ class Employeepayroll{
         _notes = notes;
     }
 }
-var slider = document.getElementById("vol");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value;
-let slider_value;              
-slider.oninput = function() {
-slider_value = this.value;
-output.innerHTML = this.value;
-}
 function checkn(name){
     let reg = /^(([A-Z])([a-zA-Z0-9_]+){1,})$/;
     if(reg.test(name)){    
@@ -289,7 +160,28 @@ function checkn(name){
         
     }
 }
-const empData = new Employeepayroll();
+let makeAjaxcalls=(methodType,url,async=false,data=null)=>{
+    return new Promise((resolve,reject)=>{
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+        
+            if(xhttp.readyState==4){
+        if(xhttp.status>=200 &&xhttp.status<=399){
+            
+            return resolve(xhttp.responseText);
+        }
+        else{
+            console.log("Failure response");
+            return reject(false);
+        }
+        }   
+        }
+        xhttp.open(methodType,url,async);
+    xhttp.send();
+    });
+    
+};
+const empData = new Employeepayroll();  
 function validate_json(){
     
         var dt = new Date().getTime();
@@ -327,9 +219,9 @@ function validate_json(){
         }       
     }
     empData.date=[document.getElementById("day"),document.getElementById("month"),document.getElementById("year")];
-    empData.salary=slider_value;
+    empData.salary=document.getElementById("salary-input").value;
     empData.notes=document.getElementById("notes");
-    add();
+    add(empData);
 }
 
 
@@ -356,7 +248,7 @@ function makeAjaxcall_add(methodType,url,callback,async=false,data=null){
             }
             xhttp.send();
         }
-function add(){
+function add(empData){
     console.log(empData);
          const baseUrl3='http://localhost:3000/employees/';
         function adddata(data){
@@ -381,8 +273,8 @@ function add(){
             let List=[];
             let tempdata = localStorage.getItem('id');
             let PayrollData =[];
-            makeAjaxcall("get",site_properties.json_host_server+tempdata,true).then((val)=>set(JSON.parse(val))).catch((val)=>console.log("false"));
-            // let List= JSON.parse(localStorage.getItem('EmployeePayrollList'));
+            makeAjaxcalls("get",site_properties.json_host_server+tempdata,true).then((val)=>set(JSON.parse(val))).catch((val)=>console.log("false"));
+            localStorage.removeItem('id');
         }
         function set(PayrollData){
             console.log(PayrollData.name);
@@ -423,5 +315,103 @@ function add(){
        }
        function logout(){
         localStorage.removeItem("token");
+        localStorage.removeItem("email");
+        localStorage.removeItem("phone");
         window.location = '../pages/login.html'; 
-    }        
+    }   
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+        document.getElementById("p_email").innerHTML+=`${localStorage.getItem("email")}`;
+        document.getElementById("p_phone").innerHTML+=`${localStorage.getItem("phone")}`;
+      }
+      
+      function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+      }    
+let filterUsers = function(event){
+ keyword = document.getElementById("filter_users").value;
+
+ filtered_users = user.filter(function(user){
+      return user.name.indexOf(keyword) > -1; 
+ });
+ InnerHTML(filtered_users);
+}
+function setu(val){
+user=val;
+console.log(user);
+}
+document.getElementById("filter_users").addEventListener('keyup', filterUsers);
+
+let isUpdate =false;
+let employeePayrollObj={};
+
+function InnerHTML(val){
+    const len=val.length;
+    // document.getElementById("table-count").innerText = len;
+    const headerHTML =
+    `<thead>
+    <tr style="color: white;">
+        <th style="width: 1%; margin: 0%;padding: 0%;"> </th>
+        <th>NAME</th>
+        <th>GENDER</th>
+        <th>DEPARTMENT</th>
+        <th>SALARY</th>
+        <th>START DATE</th>
+        <th>ACTION</th>
+    </tr>
+    </thead>`
+
+    let innerHTML =`${headerHTML}`;
+    let empDataArray =val;
+    console.log(empDataArray);
+    for(const EmpData of empDataArray){
+    innerHTML =`${innerHTML}
+    <tbody>
+    <tr>
+     <td>
+        <img src="${EmpData.profile_image}">
+    </td>
+    <td>
+      ${EmpData.name}
+    </td>
+    <td>
+     ${EmpData.gender}
+    </td>
+    <td>   
+        ${display(EmpData.department)}  
+    </td>
+    <td>
+    ${EmpData.salary}
+    </td>
+    <td>
+    ${EmpData.date}
+    </td>
+    <td>
+        <img id="${EmpData.id}" class="icon" src="../assets/logo/delete.png" onclick="remove(this)" >
+        <img id="${EmpData.id}" class="icon" src="../assets/logo/write.png" onclick="update(this)" >
+     </td>
+     </tr>
+    </tbody>`;
+        
+    }
+    document.querySelector('#t').innerHTML=innerHTML;
+}
+function remove(val){
+    console.log(val.id);
+    const baseUrl2='http://localhost:3000/employees/${val}';
+     makeAjaxcall("delete",site_properties.json_host_server+val.id,false);
+}
+function display(val){
+    let d="";
+    for(let i=0;i<val.length;i++){
+        
+           d=`${d} <div class="dept">${val[i]}</div>`; 
+        
+    }
+    return d;
+}
+function update(val){
+    
+    window.location = '../pages/employee_wage.html';
+    localStorage.setItem("id",val.id);
+}

@@ -1,12 +1,12 @@
-window.addEventListener("DOMContentLoaded",(event)=>{
-    if(localStorage.getItem('token')!=undefined){
-    window.location = '../pages/index.html'; 
-   }
-   else{
-    window.location = '../pages/login.html';   
-   }
+// window.addEventListener("DOMContentLoaded",(event)=>{
+//     if(localStorage.getItem('token')!=undefined){
+//     window.location = '../pages/index.html'; 
+//    }
+//    else{
+//     window.location = '../pages/login.html';   
+//    }
    
-});
+// });
 let makeAjaxcall=(methodType,url,async=false,data=null)=>{
     return new Promise((resolve,reject)=>{
     const xhttp = new XMLHttpRequest();
@@ -42,14 +42,24 @@ function accept(val){
 if(val.password==password.value){
 localStorage.setItem("token",1);
 window.location = '../pages/index.html';
+localStorage.setItem("email",val.email);
+localStorage.setItem("phone",val.id);
+
 }
 else{
-    console.log("noo");
+    let input =document.getElementById("password");
+    const formControl = input.parentElement;
+    //formControl.className = 'form_control_error';
+    const small = formControl.querySelector('small');
+    small.innerText = "Invalid ";  
 }
 }
 function reject(val){
-    console.log(val);
-    window.location = '../pages/signup.html';   
+    let input =document.getElementById("password");
+    const formControl = input.parentElement;
+    //formControl.className = 'form_control_error';
+    const small = formControl.querySelector('small');
+    small.innerText = "Invalid ";  
 }
 function checkn(val){
      let reg= /^[7-9][0-9]{8}$/;

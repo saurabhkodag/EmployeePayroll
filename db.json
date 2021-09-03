@@ -18,21 +18,21 @@
       "notes": "HI there"
     },
     {
-      "id": "87ed38db-a49d-4f0e-9457-5159f7e53ce9",
+      "id": "1736e2ad-e9b7-4a8c-a006-a2b5065cac27",
       "profile_image": "../assets/profile/Ellipse -3.png",
-      "name": "Sachin",
+      "name": "Akshay",
       "gender": "Male",
       "department": [
-        "hr",
-        "sale"
+        "engineering",
+        "others"
       ],
-      "salary": "32323",
+      "salary": "40448",
       "date": [
-        "17",
-        "4",
-        "2013"
+        "13",
+        "11",
+        "2016"
       ],
-      "notes": "Hi there"
+      "notes": "HI"
     }
   ],
   "credentials": [
@@ -45,7 +45,41 @@
       "id": "7777777777",
       "email": "example@gmail.com",
       "password": "qwerty"
+    },
+    {
+      "id": "999999999",
+      "email": "examples@gmail.com",
+      "password": "sachin@123"
+    },
+    {
+      "id": "7777777770",
+      "email": "kodag.saurabh6@gmail.com",
+      "password": "sachin@123"
+    },
+    {
+      "id": "8976159645",
+      "email": "sachinkodag007@gmail.com",
+      "password": "sachin@123"
+    },
+    {
+      "id": "8976159611",
+      "email": "kodag.saurabh6@gmail.com",
+      "password": "sachin@123"
+    },
+    {
+      "id": "8976159111",
+      "email": "kodag.saurabh6@gmail.com",
+      "password": "sachin@123"
+    },
+    {
+      "id": "8976151111",
+      "email": "kodag.saurabh6@gmail.com",
+      "password": "sachin@123"
+    },
+    {
+      "id": "7777666666",
+      "email": "ema@gmail.com",
+      "password": "sachin@123"
     }
-
   ]
 }

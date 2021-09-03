@@ -9,7 +9,7 @@
 </head>
 <body>
 <!-- onload="checkForUpdates()" -->
-<body style="background-color:#f7f7f7; color:#575a5e">   
+<body style="background-color:#a1ad79; color:#575a5e">   
     <div class="container">
 <!-- nav div-->
         <div class="nav">
@@ -29,13 +29,13 @@
         </div>
 <!-- body div-->
    <div class="content">
-   <div class="c_left">
+   <div class="lc_left">
    </div>
-   <div class="c_middle">
+   <div class="lc_middle">
   <table class="table-display" id="table-display" name="table-display">
     <tr>
         <td style="color: black;">
-            <h3>Login Form</h3>
+            <h3>Sign Up Form</h3>
         </td>
     </tr>
     <tr>
@@ -44,7 +44,7 @@
         </td>
         <td>
           <div class="temp">
-      <input type="text" id="email" name="email" value=""><br>
+      <input type="text" id="email" name="email" onkeypress="check_email(value)"" value=""><br>
       <small></small>
           </div>
       </tr>
@@ -63,25 +63,25 @@
           </td>
           <td>
             <div class="temp">
-        <input type="text" id="password" name="password" value="" onkeypress="checkp(value)" ><br>
+        <input type="text" id="password" name="password" value="" onkeypress="check_password(value)" ><br>
         <small></small>
             </div>
         </tr>
     <tr>
       <td>
-        <input type="button" id="cancel" value="Cancel" style="width: 60%; height: 40px;" > 
+        
       </td>
       <td>
         <div  id="b" style="padding-left: 40%;display: flex;">
-        <Button onclick="validate_signup()" type="button" id="btn" style="width: 60%; height: 40px;">Submit</Button>
-        <input type="reset" value="Reset" onclick="window.location.href='../pages/employee_wage.html'" style="width: 60%; height: 40px;margin-left: 20px;">
+        <Button onclick="validate_signup();window.location = '../pages/login.html';" type="button" id="btn" style="width: 100%; height: 40px; background-color:#82A70C;color: white;">Submit</Button>
+        
       </div>
       </td>
       </tr>
       
       </table>
     </div>
-    <div class="c_right">
+    <div class="lc_right">
     </div>
     </div>
     </div>  
